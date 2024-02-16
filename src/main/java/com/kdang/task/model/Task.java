@@ -10,7 +10,7 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Use database auto-increment
     @Column(name = "task_id")
-        private int id;
+        private int taskID;
 
     @Column(name = "name")
         private String name;
@@ -27,12 +27,34 @@ public class Task {
     @Column(name = "completed")
         private boolean completed;
 
-    public int getId() {
-        return id;
+    @Column(name = "assigned_to")
+        private int assignedTo;
+
+    @Column(name = "create_by")
+        private int createBy;
+
+    public int getCreateBy() {
+        return createBy;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCreateBy(int createBy) {
+        this.createBy = createBy;
+    }
+
+    public int getAssignedTo() {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(int assignedTo) {
+        this.assignedTo = assignedTo;
+    }
+
+    public int getTaskID() {
+        return taskID;
+    }
+
+    public void setTaskID(int taskID) {
+        this.taskID = taskID;
     }
 
     public String getName() {

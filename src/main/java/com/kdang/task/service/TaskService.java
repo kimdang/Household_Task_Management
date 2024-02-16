@@ -25,9 +25,9 @@ public class TaskService {
     }
 
     // UPDATE
-    public Task updateTask(Integer task_id, Task taskDetails) {
+    public Task updateTask(Integer taskID, Task taskDetails) {
         // Object taskDetails contains NEW task details
-        Task task = taskRepository.findById(task_id).get();
+        Task task = taskRepository.findById(taskID).get();
         task.setDescription(taskDetails.getDescription());
         task.setName(taskDetails.getName());
         task.setCreateDate(taskDetails.getCreateDate());
@@ -38,7 +38,7 @@ public class TaskService {
     }
 
     // DELETE
-    public void deleteTask(Integer task_id) {
-        taskRepository.deleteById(task_id);
+    public void deleteTask(Integer taskID) {
+        taskRepository.deleteById(taskID);
     }
 }
