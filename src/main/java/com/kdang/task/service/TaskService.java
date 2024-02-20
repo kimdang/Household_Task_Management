@@ -33,6 +33,7 @@ public class TaskService {
         task.setCreateDate(taskDetails.getCreateDate());
         task.setDueDate(taskDetails.getDueDate());
         task.setCompleted(taskDetails.isCompleted());
+        task.setAssignedTo(taskDetails.getAssignedTo());
 
         return taskRepository.save(task);
     }

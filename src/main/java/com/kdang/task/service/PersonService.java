@@ -14,7 +14,28 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
+    // CREATE
     public Person createPerson(Person person) {
         return personRepository.save(person);
+    }
+
+    // READ
+    public List<Person> getPersons() {
+        return personRepository.findAll();
+    }
+
+    // UPDATE
+    public Person updatePerson(Integer personID, Person personDetails) {
+        Person person = personRepository.findById(personID).get();
+        person.setFamilyID(personDetails.getFamilyID());
+        person.setFirstName(personDetails.getFirstName());
+        person.setLastName(personDetails.getLastName());
+
+        return personRepository.save(person);
+    }
+
+    // DELETE
+    public void deletePerson(Integer personID) {
+        personRepository.deleteById(personID);
     }
 }

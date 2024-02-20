@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1")
 public class TaskController {
     private final TaskService taskService;
 
@@ -24,20 +24,21 @@ public class TaskController {
 
     // READ
     @RequestMapping(value = "/tasks", method = RequestMethod.GET)
-    public List<Task> readTask() {
+    public List<Task> readTasks() {
         return taskService.getTasks();
     }
 
     // UPDATE
-    @RequestMapping(value = "/tasks/{task_id}", method = RequestMethod.PUT)
-    public Task updateTask(@PathVariable(value = "task_id") Integer task_id, @RequestBody Task taskDetails) {
-        return taskService.updateTask(task_id, taskDetails);
+    @RequestMapping(value = "/tasks/{taskID}", method = RequestMethod.PUT)
+    public Task updateTask(@PathVariable(value = "taskID") Integer taskID,
+                           @RequestBody Task taskDetails) {
+        return taskService.updateTask(taskID, taskDetails);
     }
 
     // DELETE
-    @RequestMapping(value = "/tasks/{task_id}", method = RequestMethod.DELETE)
-    public void deleteTask(@PathVariable(value = "task_id") Integer task_id) {
-        taskService.deleteTask(task_id);
+    @RequestMapping(value = "/tasks/{taskID}", method = RequestMethod.DELETE)
+    public void deleteTask(@PathVariable(value = "taskID") Integer taskID) {
+        taskService.deleteTask(taskID);
     }
 
 
