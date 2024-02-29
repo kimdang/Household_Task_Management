@@ -29,14 +29,14 @@ public class PersonController {
 
     // UPDATE
     @RequestMapping(value = "/persons/{personID}", method = RequestMethod.PUT)
-    public Person updatePerson(@PathVariable(value = "personID") Integer personID,
+    public Person updatePerson(@PathVariable(value = "personID") Long personID,
                                @RequestBody Person personDetails) {
         return personService.updatePerson(personID, personDetails);
     }
 
     // DELETE
     @RequestMapping(value = "/persons/{personID}", method = RequestMethod.DELETE)
-    public void deletePerson(@PathVariable(value = "personID") Integer personID) {
+    public void deletePerson(@PathVariable(value = "personID") Long personID) {
         personService.deletePerson(personID);
     }
 }

@@ -3,13 +3,13 @@ package com.kdang.task.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "person")
+@Table(name = "persons")
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Use database auto-increment
     @Column(name = "person_id")
-        private int personID;
+        private long personID;
 
     @Column(name = "first_name")
         private String firstName;
@@ -18,13 +18,13 @@ public class Person {
         private String lastName;
 
     @Column(name = "family_id")
-        private int familyID;
+        private long familyID;
 
-    public int getPersonID() {
+    public long getPersonID() {
         return personID;
     }
 
-    public void setPersonID(int personID) {
+    public void setPersonID(long personID) {
         this.personID = personID;
     }
 
@@ -44,11 +44,11 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public int getFamilyID() {
+    public long getFamilyID() {
         return familyID;
     }
 
-    public void setFamilyID(int familyID) {
+    public void setFamilyID(long familyID) {
         this.familyID = familyID;
     }
 }

@@ -25,7 +25,7 @@ public class TaskService {
     }
 
     // UPDATE
-    public Task updateTask(Integer taskID, Task taskDetails) {
+    public Task updateTask(Long taskID, Task taskDetails) {
         // Object taskDetails contains NEW task details
         Task task = taskRepository.findById(taskID).get();
         task.setDescription(taskDetails.getDescription());
@@ -34,12 +34,13 @@ public class TaskService {
         task.setDueDate(taskDetails.getDueDate());
         task.setCompleted(taskDetails.isCompleted());
         task.setAssignedTo(taskDetails.getAssignedTo());
+        task.setCreateBy(taskDetails.getCreateBy());
 
         return taskRepository.save(task);
     }
 
     // DELETE
-    public void deleteTask(Integer taskID) {
+    public void deleteTask(Long taskID) {
         taskRepository.deleteById(taskID);
     }
 }

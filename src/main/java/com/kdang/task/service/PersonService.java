@@ -25,7 +25,7 @@ public class PersonService {
     }
 
     // UPDATE
-    public Person updatePerson(Integer personID, Person personDetails) {
+    public Person updatePerson(Long personID, Person personDetails) {
         Person person = personRepository.findById(personID).get();
         person.setFamilyID(personDetails.getFamilyID());
         person.setFirstName(personDetails.getFirstName());
@@ -35,7 +35,7 @@ public class PersonService {
     }
 
     // DELETE
-    public void deletePerson(Integer personID) {
+    public void deletePerson(Long personID) {
         personRepository.deleteById(personID);
     }
 }

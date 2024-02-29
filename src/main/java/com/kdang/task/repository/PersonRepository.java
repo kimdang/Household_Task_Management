@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.kdang.task.model.Person;
 
 @Repository
-public interface PersonRepository extends JpaRepository<Person, Integer> {
+public interface PersonRepository extends JpaRepository<Person, Long> {
 }

@@ -1,16 +1,18 @@
 package com.kdang.task.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
 import java.util.Date;
 
 @Entity
-@Table(name = "task")
+@Table(name = "tasks")
 public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Use database auto-increment
     @Column(name = "task_id")
-        private int taskID;
+        private long taskID;
 
     @Column(name = "name")
         private String name;
@@ -18,6 +20,7 @@ public class Task {
     @Column(name = "description")
         private String description;
 
+    @CreationTimestamp // Get current timestamp from VM and insert in database
     @Column(name = "create_date")
         private Date createDate;
 
@@ -49,11 +52,11 @@ public class Task {
         this.assignedTo = assignedTo;
     }
 
-    public int getTaskID() {
+    public long getTaskID() {
         return taskID;
     }
 
-    public void setTaskID(int taskID) {
+    public void setTaskID(long taskID) {
         this.taskID = taskID;
     }
 
