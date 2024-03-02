@@ -12,7 +12,4 @@ public interface TaskRepository extends JpaRepository<Task, Long>, JpaSpecificat
     // This repository manages model class Task, where primary key is long
     // JpaRepository interface has save(), findAll(), delete() methods which enable CRUD operations
 
-    Task findByName(String name);
-
-    List<Task> findByAssignedTo(String assignedTo);
 }
