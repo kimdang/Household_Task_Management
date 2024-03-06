@@ -26,11 +26,12 @@ public class TaskController {
     // READ
     // Provide optional parameter 'name' for filtering
     @RequestMapping(method = RequestMethod.GET, value = "/tasks")
-    public List<Task> searchByName(@RequestParam(required = false, value = "name") String name) {
+    public List<Task> getTask(@RequestParam(required = false, value = "name") String name,
+                              @RequestParam(required = false, value = "pastdue") String pastdue) {
         if (name == null) {
             return taskService.getTasks();
         } else {
-            return taskService.searchByName(name);
+            return taskService.searchTasks(name, pastdue);
         }
     }
 
@@ -48,5 +49,6 @@ public class TaskController {
     }
 
 
-
 }
+
+// Note: for URL that must contain space, use %20 instead. For example: GET ../tasks?name=eat%20dinner

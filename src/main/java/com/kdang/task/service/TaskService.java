@@ -49,10 +49,14 @@ public class TaskService {
     }
 
     // SEARCH
-    public List<Task> searchByName(String name) {
+    public List<Task> searchTasks(String name, String pastDue) {
         Specification<Task> spec = Specification.where(null);
         if (name != null) {
             spec = TaskSpecs.hasName(name);
+        }
+
+        if (pastDue != null) {
+            spec = TaskSpecs.isPastDue();
         }
         return taskRepository.findAll(spec);
     }
